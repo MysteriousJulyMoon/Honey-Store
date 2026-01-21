@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Медолюб - Попробуй настоящий мед на вкус!</title>
+    <style>
+        body {
+            font-family:  'Times New Roman', Times, serif, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d6830fec; /* Светло-серый фон */
+            background-image: url("wallpaper.jpg"); 
+            background-size: cover;
+            background-position: center;
+            color: #040404ea; /* Темно-серый текст */
+            line-height: 2;
+            font-size: 16px; /* Базовый размер шрифта */
+        }
+                          
+        header {
+          color: #121111;
+          padding: 10px 20px;        
+          position: sticky; /*  Фиксируем шапку */
+          top: 0;           /*  Прилипает к верху экрана */
+          z-index: 100;      /*  Чтобы шапка была поверх контента */
+          overflow: hidden;
+          text-align: center;
+          height: 140px;
+          mask-size: cover;                               /* Масштабируем маску */
+          background-size: cover;                      /* Растягиваем изображение */
+          background-position: center;                   /* Центрируем изображение */
+          background-color: rgba(228, 137, 47, 0.6); /* Полупрозрачный черный */
+          
+
+           /* color: #121111;
+           /*background-image: url("iconika.png"); /* Добавляем изображение 
+            text-align: center;
+            padding: 10px 20px;
+            position: relative;
+            overflow: hidden;
+            display: flexbox; /* Используем flexbox для выравнивания элементов */
+            /*justify-content: center; /* Распределяем элементы по краям */
+            /*align-items: center; /* Выравниваем элементы по вертикали по центру */
+            /*height: 180px; /* Задаём фиксированную высоту для всей секции */ 
+        }
+
+        header h1 {
+            margin: 0;
+            text-align: center;
+            font-size: 3em; /*размер шрифта в названии */
+            letter-spacing: 0.1em;
+            /*text-shadow: 2px 2px 4px #989890;  /* цвет тени у шрифта заголовка*/
+            font-family: inherit;
+            font-size: 2.5rem;
+        }
+
+        section {
+            padding: 30px;
+            margin: 20px;
+            background-color: rgba(167, 159, 159, 0.138); /* Полупрозрачный белый */
+            border-radius: 10px;
+        }
+
+        h2 {
+            /*font-size: 2.5em;  /* размер заголовка "История пасеки"*/
+            margin-bottom: 20px;
+            border-bottom: 5px solid #211e1e;
+            padding-bottom: 10px;
+            font-size: 2rem;
+           }
+
+           .history {
+           display: grid;
+            grid-template-columns: 1fr 1fr; /* Две колонки: для изображения и текста */
+            gap: 20px;             /* Расстояние между колонками */
+            align-items: center;      /* Выравнивание элементов по вертикали по центру */
+          }
+
+            .history img {
+            width: 100%; /*Чтобы изображение заняло 100% ширины своей колонки*/
+            height: auto;  /* Чтобы сохранить пропорции */
+           grid-column: 1; /*Помещаем изображение в первую колонку*/
+          }
+
+            .history p {
+           text-align: left;        /* Выравнивание текста по левому краю */
+            grid-column: 2; /*Помещаем текст во вторую колонку*/
+                        }
+
+            .header-icon {
+            width: 100px; /* максимум 130px */
+            height: auto;
+            vertical-align: middle; /* Выравниваем по вертикали по центру текста */
+            margin-right: 10px; /* Добавляем немного пространства между иконкой и текстом */
+                      }
+           .history {
+            display: flex; /* Используем Flexbox */
+            align-items: flex-start; /* Выравниваем элементы по верхнему краю */
+            gap: 5px; /* Расстояние между изображением и текстом */
+            margin-bottom: 0px; /* Отступ снизу, чтобы отделить от дополнительных фото */
+                  }
+
+           .history img {
+            width: 50%; /* Задаем ширину картинки */
+            height: auto;
+                        }
+
+           .history p {
+            text-align: left; /* Выравнивание текста по левому краю */
+            flex: 1; /* Текст занимает оставшееся пространство */
+                      }
+           .history-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0px; /* расстояние между картинками */
+            /*justify-content: center; /* Центрируем изображения на маленьких экранах */
+                          }
+
+           .history-images img {
+            width: 400px; /* Задайте желаемую ширину для дополнительных фотографий */
+            height: auto;
+                            }
+
+            .festival-images {
+            display: flex;
+            flex-direction: column; /* Располагаем изображения вертикально */
+            align-items: flex-start; /* Выравниваем по левому краю */
+            width: 50%; /* Ширина, чтобы соответствовала ширине картинки в .history */
+                             }
+
+           .festival-images img {
+            width: 100%; /* Заполняем ширину контейнера */
+            height: auto;
+            margin-bottom: 20px; /* Отступ между изображениями */
+            display: block /* Убираем лишние отступы снизу */
+                                }
+
+        /* Адаптивный отступ между фото */
+            .festival-images img:not(:last-child) {
+            margin-bottom: 2vw; /* Используем vw для адаптивного отступа */
+                                                   }
+           .artist {
+            margin-bottom: 20px;
+                     }
+           .artist-container {
+            display: flex; /* Используем flexbox для выравнивания элементов в строку */
+            align-items: flex-start; /* Выравнивание по верхнему краю, чтобы текст не "скакал" */
+            gap: 20px; /* Добавляем небольшой отступ между изображением и текстом */
+                            }
+          
+           .artist {
+             margin-bottom: 20x;
+             display: grid; /* Включаем grid layout */
+             grid-template-columns: 1fr 1fr; /* Две колонки: текст и изображение */
+             align-items: start; /* Выравниваем элементы по вертикали по центру */
+             gap: 15px; /* Расстояние между элементами */
+                     }
+
+            .artist p {
+             text-align: center; /* Выравниваем текст по центру */
+             grid-column: 2;
+             font-size: 5.0em;
+                  }
+           .artist-details {
+            flex: 1; /* Текст занимает доступное место */
+            text-align: left;
+            margin-top: 20px; /* Отступ сверху */
+                        }
+
+
+            .artist img {
+            width: 500px; /* Или другое значение, которое вам нужно */
+            height: auto;
+            display: block; /* Убирает нежелательные отступы под изображением */
+            grid-column: 1; /* Помещаем изображение во вторую колонку */
+            border-radius: 10px;
+                    }
+
+           .artist h3 {
+            font-size: 1.8em;
+            text-align: left;
+            margin-bottom: 5px;
+            image-orientation: flip;
+                       }
+
+           .venue {
+            background-color: rgba(216, 113, 10, 0.6); /* Еще более прозрачный серый для места проведения */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+              }
+            .venue-images {
+            display: flex;
+            justify-content: center; /* Центрируем изображения по горизонтали */
+            align-items: center;
+            margin-top: 20px;
+                          }
+
+           .venue-images img {
+            width: 45%; /* Задаем ширину каждого изображения (можно менять) */
+            height: auto;
+            /*clip-path: ellipse(50% 50% at 50% 50%); /* Создает овальную область видимости */
+            /*object-fit: cover;
+            object-position: center;/*/
+            border-radius: 50%; /* Делает изображение круглым */
+            object-fit: cover; /* Важно: обрезает изображение, чтобы оно заполнило круг */
+            object-position: center; /* Центрирует изображение в круге */
+            /*border-radius: 8px;
+            margin: 0 50px;*/ /* Добавляем отступ слева и справа */
+                              }
+
+          .easy-zoom-effect {
+             transition: transform 0.5s ease;
+                          }
+          .easy-zoom-effect:hover {
+             transform: scale(1.25);  /* плавное увеличение изображения*/
+                                  }
+
+        footer {
+          text-align: center;  /* Панель "Все права защищены"*/
+          padding: 10px;  /*Отступ между цветной секцией и изображением сот */
+          background-color: rgba(215, 117, 19, 0.6);
+          color: #333; /* Darker text color */
+          position: relative; /* чтобы не перекрывалось фоновым изображением */
+         border-radius: 10px;  /* Округлая форма цветной панели */
+         overflow: hidden;
+              }
+
+        footer::before {
+        content: "";
+        position: absolute;
+        top: 0,5;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("sotka.jpg");
+        background-size: 700px; /* Stretch to fill */
+        background-position: center;
+        opacity: 0.7;  /* Степень прозрачности*/
+        z-index: 1;
+        border-radius: inherit;
+                    }
+
+       footer p {
+        position: relative; /* To be above the background image */
+        z-index: 2;
+        color: #111;  
+        padding: 30px;  /* Размер блока с изображением сот*/
+                }
+
+            /* Стили для модального окна */
+        .modal {
+        display: none; /* Изначально скрыто */
+        position: fixed; /* Фиксированное позиционирование */
+        z-index: 1; /* Поверх всего */
+        left: 0;
+        top: 0;
+        width: 100%; /* Полная ширина */
+        height: 100%; /* Полная высота */
+        overflow: auto; /* Прокрутка, если контент не помещается */
+        background-color: rgba(0, 0, 0, 0.4); /* Полупрозрачный фон */
+    }
+
+    /* Стили для содержимого модального окна */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* По центру экрана */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Ширина содержимого */
+        max-width: 450px; /* Максимальная ширина */
+        position: relative; /* Для позиционирования кнопки закрытия */
+    }
+
+    /* Стили для кнопки закрытия */
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #aaa;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* Стили для изображения в модальном окне */
+    #modalImage {
+        width: 100%;
+        max-height: 400px; /* Ограничьте высоту, чтобы избежать переполнения экрана */
+        object-fit: contain; /* Важно для сохранения пропорций */
+        margin-bottom: 10px;
+    }
+
+    #modalDescription {
+        text-align: center;
+    }
+
+    /* Дополнительные стили для контейнера контента (если нужно) */
+    .honey-container {
+      display: grid;
+        grid-template-columns: 1fr 1fr; /* Две колонки */
+        gap: 50px;             /* Расстояние между колонками */
+        align-items: center;      /* Выравнивание элементов по вертикали по центру */
+        margin: 20px;
+    }
+
+     /* Стили для исходного изображения гречишного мёда */
+    #buckwheat-honey-img {
+        width: 100%;        /* Или конкретное значение, например, 400px */
+        max-width: 400px;  /* Максимальная ширина, чтобы не растягивалось */
+        height: auto;
+        object-fit: cover;   /* Обрезает изображение, чтобы поместилось в заданные размеры */
+    }
+
+        .no-border h2 {
+        border-bottom: none; /* Убираем линию только для этой секции */
+    }
+
+
+    .header {
+    background-color: #f0ad4e; /* цвет фона, который у вас сейчас*/
+    color: #000; /* цвет текста */
+    padding: 20px;
+    text-align: center;
+    position: relative; /* Для позиционирования изображения */
+    overflow: hidden; /* Важно для обрезки clip-path */
+}
+
+.header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%; /* Занимает половину ширины контейнера */
+    height: 100%; /* Растягивается на всю высоту контейнера */
+    background: url('bee.jpg') no-repeat center center; /* Замените на ваш путь к изображению */
+    background-size: cover;
+    clip-path: polygon(100% 50%, 0.2% 0.2, 0% 150%, 100% 80%); /* Фигурная вырезка.  Первые две координаты - верхний левый и верхний правый углы видимой части.  Следующие две - нижний правый и нижний левый углы видимой части. */
+    z-index: 1; /* Помещает изображение позади текста */
+}
+
+.header-content {
+    text-align: center;
+    flex: 1; /* Занимает оставшееся пространство в центре */
+    position: relative; /* Поверх изображения */
+    z-index: 2;
+    /*width: auto;  /* Ограничиваем ширину контейнера контента */
+   /*margin: 0 auto; /* Центрируем контейнер контента по горизонтали */
+}
+
+.header-contact {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%;           /* Вертикальный центр */
+    right: 20px;        /* Отступ от правого края */
+    transform: translateY(-50%); /* Корректировка вертикального положения */
+    white-space: nowrap;  /* Предотвращает перенос текста */
+    text-align: right; /*  Выравнивание текста по правому краю */
+}
+
+.header a {
+    color: #121111; /* Цвет ссылки */
+    text-decoration: none; /* Убираем подчеркивание у ссылки */
+}
+
+.header h1, .header p {
+    position: relative; /* Помещает текст поверх изображения */
+    z-index: 2; /*  Обеспечивает отображение текста поверх изображения */
+    text-align: center;
+}
+
+    
+
+        /* Дополнительные стили для мобильных устройств */
+        @media (max-width: 768px) {
+            
+        body {
+            font-size: 14px; /* Уменьшаем базовый размер шрифта */
+        }
+        header {
+            width: 20rem;
+            position: relative;
+            height: auto; /* Автоматическая высота, подстраивается под контент */
+            padding: 10px; /* Уменьшаем отступы */
+            text-align: center;
+            display: flex;
+            flex-direction: column; /* Размещаем контент вертикально */
+            align-items: center;      /* Центрируем элементы по горизонтали */
+            justify-content: flex-start; /* Распределяем пространство между элементами (контент и доставка) */
+            min-height: 150px;      /* Минимальная высота секции (подстройте по необходимости) */
+            box-sizing: border-box; /* Учитываем отступы и границы в общей ширине */
+            border-bottom: 1px solid #ddd; /* Разделительная линия снизу */
+        }
+
+        .header-image {
+           width: 30%; /* Уменьшаем ширину изображения */
+           height: 80%;
+           max-width: 150px; /* Ограничиваем максимальную ширину */
+           margin-bottom: 10px; /* Отступ от изображения до текста */
+                   }
+        
+
+        header h1 {
+          position: relative;
+          font-size: 1.8em; /* Еще немного уменьшаем заголовок */
+          margin-bottom: 2px;
+          color: #020202;
+                 }
+
+        header p {
+          position: relative;
+          font-size: 0.9em; /* И подзаголовок тоже */
+          margin-top: 2px;
+          line-height: 1.3; /* Добавим межстрочный интервал */
+          color: #020202;
+         }
+        
+        .header-content {
+           flex: none;  /* Занимает все доступное пространство по вертикали */
+           display: flex;
+           flex-direction: column;
+           justify-content: center; /*  Центрируем название и подзаголовок по вертикали */
+           align-items: center;
+           margin-bottom: 5px; /* Добавляем отступ между контентом и информацией о доставке */
+                           }
+                }
+
+        h2 {
+            position: relative;
+            font-size: 1rem; /* Уменьшаем размер подзаголовка */
+            padding: 5px; /* Добавляем отступ вокруг текста */
+            z-index: 2;
+        }
+
+        .header-contact {
+          position: absolute; /* Абсолютное позиционирование */
+          top: 85%;           /* Вертикальный центр */
+          right: 5px;        /* Отступ от правого края */
+          bottom: 5px;    /* Размещаем внизу */
+          font-size: 0.9em; /* Уменьшаем размер шрифта */
+          white-space: nowrap;  /* Предотвращает перенос текста */
+          text-align: right; /*  Выравнивание текста по правому краю */
+              }
+        
+        footer {
+           color: #fff; /* Белый текст */
+           text-align: center; /* Центрируем текст */
+           padding: 0px 0; /* Отступы сверху и снизу */
+           font-size: 0.8em; /* Небольшой размер шрифта */
+           position: relative; /* Фиксируем внизу экрана */
+           bottom: auto; /* Прижимаем к низу */
+           left: 0; /* Прижимаем к левому краю */
+           width: 100%; /* Занимает всю ширину */
+               }
+
+
+        .history {
+            display: block; /* Меняем на блочное отображение для мобильных */
+            text-align: center; /* Центрируем содержимое (опционально) */
+            margin-bottom: 20px; /* Добавьте отступ снизу для разделения секций */
+        }
+
+        .history img {
+            height: auto;
+            margin-bottom: 10px; /* Добавляем отступ между изображением и текстом */
+            width: 80%;       /* Уменьшаем ширину изображения */
+            max-width: 300px;   /* Ограничиваем максимальную ширину */
+            margin: 0 auto;    /* Центрируем изображение */
+            display: block; 
+        }
+
+        .history p {
+            text-align: left;
+            padding: 0 20px; /* Добавьте отступы слева и справа для текста */
+        }
+
+        .history-images {
+        display: flex;
+        flex-direction: column; /* Вертикальное расположение */
+        align-items: center;    /* Центрирование по горизонтали */
+        margin-bottom: 20px; /* Отступ снизу */
+    }
+
+    .history-images img {
+        width: 80%;            /* Уменьшаем размер фото */
+        max-width: 200px;        /* Ограничиваем максимальную ширину */
+        margin-bottom: 10px;    /* отступ снизу */
+    }
+
+    .festival-images {
+        width: 100%;           /* Фото занимают всю ширину */
+        align-items: center;    /* Центрирование по горизонтали */
+        margin-bottom: 20px; /* отступ снизу */
+    }
+
+    .artist {
+        display: block; 
+        text-align: center;
+        margin-bottom: 20px; /*отступ снизу */
+    }
+
+    .artist p {
+        grid-column: 1;             /* Текст под фото */
+        font-size: 2em;           /* Уменьшаем размер шрифта */
+        text-align: left;        /* Выравнивание текста по левому краю */
+        padding: 0 20px;        /* отступы слева и справа для текста */
+    }
+
+    .artist img {
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 10px;        /* отступ между изображением и текстом */
+        grid-column: 1;             /* Фото над текстом */
+        width: 80%;                /* Уменьшаем размер фото */
+        max-width: 400px;            /* Ограничиваем максимальную ширину */
+    }
+
+    .artist-details {
+        text-align: center;         /* Центрируем текст */
+    }
+
+    .artist h3 {
+        text-align: center;         /* Центрируем заголовок */
+    }
+
+    .venue-images {
+        display: flex;
+        margin-bottom: 20px; /* Отступ снизу */
+        flex-direction: column; /* Вертикальное расположение */
+        align-items: center;    /* Центрирование по горизонтали */
+    }
+
+    .venue-images img {
+        width: 80%;           /* Фото занимают всю ширину */
+        max-width: 200px;        /* Ограничиваем максимальную ширину */
+        margin-bottom: 10px;    /* Добавляем отступ снизу */
+    }
+    
+    </style>
+</head>
+<body>
+
+  <!--<header>
+      <h1>Медолюб
+        <img src="iconika.png" alt="Иконка сот" class="header-icon">
+      </h1>
+      <p>Натуральный мед произведенный в Калининграде</p>
+  </header> -->
+
+  <!--<div class="header">
+    <div class="header-image"></div>
+    <h1>Медолюб</h1>
+    <p>Натуральный мед произведенный в Калининграде</p>
+  </div>  -->
+  
+  
+  <header>
+    <div class="header-image"></div>
+    <div class="header-content">
+        <h1>Медолюб</h1>
+        <p>Попробуй настоящий мед на вкус!</p>
+    </div>
+    <div class="header-contact">
+        Заказ доставки: <a href="tel:+79114621111">+7 (911) 462 11 11</a><br>
+        от 2000 ₽ бесплатно по Калининграду
+    </div>
+</header>  
+
+
+
+  <section id="История нашей пасеки">
+    <h2>История нашей пасеки</h2>
+    <div class="history">
+      <p>Наша пасека – это семейное дело, которое мы ведем уже несколько поколений. Все началось с маленького увлечения моего деда, который, 
+        будучи еще совсем юным, завел несколько ульев на заднем дворе своего дома. Увлечение переросло в серьезное дело всей жизни, количество ульев с тех пор сильно возросло,
+         желающих среди знакомых, чтобы попробовать наш мед с каждым разом становилось все больше. Желение, чтобы настоящий мед попробовало как можно больше людей переросло в семейное дело
+        С тех пор многое изменилось, но наша любовь к пчелам и меду осталась неизменной.  Мы гордимся тем, что производим натуральный мед высокого качества, 
+        который собирается с заботой о пчелах и природе. </p>
+        <p>Мы бережно храним многолетние традиции нашей семейной пасеки, но при этом активно развиваем новые направления экологичной пчелопродукции. 
+          В работе пасеки нам удалось объединить традиционные ценности и современные технологии. Вам непременно придутся по душе наши товары! </p>
+        <div class="festival-images">
+          <img src="p1.png" alt="Пасека" class="easy-zoom-effect" alt="Увеличивающееся изображение">
+          <img src="p2.jpg" alt="Мед" class="easy-zoom-effect" alt="Увеличивающееся изображение">
+        </div>
+    
+      </div>
+      
+
+  <section id="Наша продукция">
+      <h2>Наша продукция</h2>
+      <div style="min-height:500px">
+        <h3>Мёд Липовый</h3>
+        <br>
+        <div style="width:50%;min-height:300px; float:left">
+          <img src="lipa.jpg" alt="Мёд Липовый" width="500" class="easy-zoom-effect" alt="Увеличивающееся изображение"/>
+        </div>
+        <div style="width:50%;height:300px;float:left">
+          <p>Собран с цветущих лип в экологически чистом районе. Аромат липового мёда нельзя спутать — тонкий, изящный и очень душистый.
+            Липовый мёд способен сохранять свои полезные свойства на протяжении нескольких лет! </p>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+      <div style="min-height:500px">
+          <h3>Мед Акация</h3>
+          <br>
+          <div style="width:50%;min-height:300px; float:left">
+            <img src="akacia.jpg" alt="Мед Акация" width="500" class="easy-zoom-effect" alt="Увеличивающееся изображение"/>
+          </div>
+          <div style="width:50%;height:300px;float:left">
+            <p>Один из «детских» и поистине лечебных сортов меда. Он активно используется в кондитерском деле, 
+              так как не имеет выраженной горечи или кислинки, однако нужно понимать, что его легкую текстуру особенно просто подделать,
+               разбавив натуральную смесь глюкозными сиропом. </p>
+          </div>
+          <div style="clear:both"></div>
+      </div>
+ 
+      <section class="no-border">
+        <h3>Мёд Гречишный</h3>
+        <div class="honey-container"> <!-- Контейнер для содержимого меда -->
+            <a href="#" onclick="openModal(); return false;">
+                <img src="grech.jpg" alt="Гречишный мёд" id="buckwheat-honey-img">
+            </a>
+            <p>Гречишный мед наделен целым набором полезных свойств, обладает насыщенным вкусом и тёмным цветом. Чем полезен этот сорт меда? 
+              Он содержит больше железа, калия, кальция, фосфора и белков, чем другие сорта. Замечательно укрепляет иммунитет, 
+              хорош для профилактики заболеваний почек, печени и болезней ЖКТ. Мед с цветов гречихи содержит большое количество витамино
+              в и активно используется в косметологии.</p>
+        </div>
+        <div style="clear:both"></div>
+      </div>
+
+
+    <!-- Кнопка, которая открывает модальное окно 
+    <button id="myBtn">Подробнее о гречишном мёде</button> -->
+
+    <div style="min-height:500px">
+      <h3>Мёд Разнотравье</h3>
+      <br>
+      <div style="width:50%;min-height:300px; float:left">
+        <img src="raznotravie.jpg" alt="Мёд Разнотравье" width="380" border-radius: 10px;/>
+      </div>
+      <div style="width:50%;height:300px;float:left">
+        <p> Один из самых популярных видов медовых продуктов. Свое название он получил из-за того, что собирают его с разных медоносных растений. 
+          Данный сорт меда имеет богатейший состав, приятный вкус и большой список целебных свойств.Смесь различных сортов мёда, собранных с луговых трав создает незабываем вкуси целый набор полезных микроэлементов.</p>
+      </div>
+      <div style="clear:both"></div>
+  </div>
+  </section>
+
+  <section id="venue">
+      <h2>Местонахождение пасеки</h2>
+      <div class="venue">
+          <h3>Как добраться?</h3>
+          <p>Адрес: Калининградская область г.Гусев ул. Пасечная, д. 1</p>
+          <p>Мы производим только качественный, натуральный мед, который не подвергается термообработке и добавлению примесей,
+             а также мы ежегодно проходим ветеринарный контроль пасек и лабораторный анализ продукции.</p>
+          <p>Будем рады видеть вас в числе наших клиентов!</p>
+          <p>Наша продукция доступна для заказа по телефону или в мессенжерах, мед только свежей откачки!</p>
+          <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Af956f16c4ba4f69b7a764d9040c278a8a00027aa1ee954838faf66b07ddb90e9&amp;width=734&amp;height=423&amp;lang=ru_RU&amp;scroll=true"></script>
+          <!--<img src="paseka.jpg" alt="Пасека на лугу" width="500">
+          <img src="lyg.jpg" alt="Пасечник с сотами" width="550">  -->
+      </div>
+  </section>
+
+  <section id="tickets">
+      <h2>Контакты</h2>
+        <p>Телефон: +7 (999) 123-45-67</p>
+        <p>Email: info@sweet-hive.ru</p>
+        <p>Адрес: Калининградская область г.Гусев ул. Пасечная, д. 1</p>
+  </section>
+
+      <footer>
+    <div class="copyright">
+        <div class="copyright-text-wrapper">
+            <p>© 2025 HONEY SHOP - Kaliningrad. Все права защищены.</p>
+        </div>
+    </div>
+</footer>
+
+      <div id="root"></div>
+      <script src="index.js"></script>
+    </body>
+
+        <!-- Модальное окно -->
+    <div id="honeyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="grech.jpg" alt="Гречишный мёд">
+            <div id="modalDescription">
+                <h3>Гречишный мёд</h3>
+                <p><b>Цена:</b> 500 руб./кг</p>
+                <p><b>Дата сбора:</b> Июль 2025</p>
+                <p>Гречишный мед обладает антимикробными и антибактериальными свойствами. 
+                  Он помогает организму бороться с инфекциями и укрепляет защитные функции иммунной системы. </p>
+            </div>
+        </div>
+    </div>
+
+        <script>
+        function openModal() {
+            document.getElementById("honeyModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("honeyModal").style.display = "none";
+        }
+
+        // Закрытие модального окна при клике вне его области
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("honeyModal")) {
+                closeModal();
+            }
+        }
+    </script>
+
+
+    
+</body>
+</html>
+
